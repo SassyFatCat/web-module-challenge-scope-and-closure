@@ -27,11 +27,23 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+
+        Counter1 has declared 'count' inside of a function, meaning that 'count' has lexical scope only inside that function.
+            Whenever counterMaker is set to a new variable, count will = 0
+
+        Counter2 code shows 'count' being declared in global scope, and because there is no variable 'count' inside the function counter2, the function counter2
+            will reach out to grab the variable. Whenever a new variable is assigned the value of "counter2()", the 'count' variable will not necessarily be 0 to begin with
+ 
  * 2. Which of the two uses a closure? How can you tell?
- * 
+
+        counter1 uses closure, and we can tell because all of the relevant code is within the brackets of the function
+ 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+
+        counter1 would be preferable if we were going to use the function counterMaker multiple times for different variables, to track different things
+
+        counter2 would be preferable if we wanted 'count' to be accessible by multiple functions throughout our code and for those functions to work with 
+        the globally updated 'count'
 */
 
 // counter1 code
@@ -56,10 +68,8 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+    return Math.floor(Math.random()*3)
 }
 
 /* Task 3: finalScore()
@@ -76,11 +86,25 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(callback, numInnings){
+let homeScore = 0;
+let awayScore = 0;
+for (let i = 0; i < numInnings*2; i++) {
+  if (i <= numInnings) {
+    homeScore += callback();
+  }
+  else if (i > numInnings) {
+    awayScore += callback();
+  }
 }
+return {
+  Home: homeScore,
+  Away: awayScore
+}
+}
+  
+
+
 
 /* Task 4: 
 

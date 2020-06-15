@@ -104,8 +104,6 @@ return {
 }
   
 
-
-
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
@@ -127,8 +125,18 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(callback, numInnings) {
+let homeScore = 0;
+let awayScore = 0;
+let scoreboardObj = {};
+for (let i = 0; i < numInnings; i++) {
+  homeScore += callback();
+  awayScore += callback();
+  scoreboardObj[`${i}th inning`] = `${homeScore} - ${awayScore}`
+}
+  scoreboardObj["Final Score"] = `${homeScore} - ${awayScore}`;
+
+return scoreboardObj
 }
 
 

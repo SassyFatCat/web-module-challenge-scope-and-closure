@@ -67,8 +67,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+    Closeure is used in the function personalDice, and you can tell from the open and closed brackets with code inside
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+    What is always the same is "Dan" being used as an argument, but the value of const newRoll will change each time because it uses Math.random
+
 c. What is the lexical scope of `newRoll`? 
+
+  Its lexical scope is inside the anonymous function that contains it
 
 ### Task 2c - Exit Ticket
 

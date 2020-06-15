@@ -38,3 +38,24 @@ addSix(10);
 
 
 //3. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
+/* General differences:
+        FP separates data and processes while OOP combines data and processes 
+        FP usually tries to leave original data untouched and return the results of processes on data, while OOP usually changes original data
+        FP has more smaller proccesses that perform calculations, while OOP has large classes and objects that have the ability to do more things
+
+
+    Specific to Functional Programming:
+    - Data and processes are completely separate
+    - Objects do not change
+    - Pure functions
+        - Repeated same input to a function will always return the same result
+        - The returned results shouldn't rely on data outside their scope
+        - The data that is used in functions is unchanged (in other words, the data is immutable), and the returned results are new arrays, new objects, new variables, etc
+            - an example would be using .map instead of .forEach to alter data. .map will return a new array, while .forEach will presumably change the data in the original
+    
+    Specific to OOP:
+    - Classes are used to create new objects. Objects can inherit attributes and methods of the creating Class
+    - Objects have methods which will can change the data within the objects
+    - Objects can use .this to change their own state
+
+    In my experience I enjoy using Functional Programming more as it is easier to follow the path of processes and data, however OOP is less prone to less errors and bugs and seems easier to write
